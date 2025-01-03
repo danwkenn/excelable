@@ -1,5 +1,5 @@
 #' Constructor for a Field.
-#' 
+#'
 #' The point of a field is that items have a name and fields. There might need to be other types of field as well.
 #' @param content Takes the actual content, which is either a formula or data.
 #' @param formatting Takes a list of formatting elements to be used for formatting.
@@ -103,6 +103,41 @@ add_formula <- function(
   UseMethod("add_formula")
 }
 
+#' Method for adding data content.
+#'
+#' Adding content method.
+#' @param item Item to add the formula to.
+#' @param content String for the formula
+#' @param field_name Name of the field to add the formula to (may be ignored).
+#' @export
+add_data <- function(
+  item,
+  content,
+  field_name) {
+  UseMethod("add_data")
+}
+
+#' Method for adding data content to cells.
+#'
+#' Add content to a cell.
+#' @param item Item to add the formula to.
+#' @param content String for the formula
+#' @param field_name Name of the field to add the formula to (may be ignored).
+#' @param location Used for recurssion, but might be ignored.
+#' @export
+add_data.Cell <- function(item, content, field_name) {
+  location <- new_Coordinate(
+    item$name,
+    field = "body",
+    1,
+    1,
+    1,
+    1
+  )
+  item$field$body$content <- content
+  item
+}
+
 #' Method for adding formulas to cells.
 #'
 #' Formulas need to be added after the item is created, since the formula syntax allows for ommissions which assume reference to the object itself.
@@ -139,5 +174,4 @@ function() {
     )
   )
   cell <- add_formula(cell, "= {table1};{body};{col1};{row3} + SUM({table2};{col1})")
-
 }
