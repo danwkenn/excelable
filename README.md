@@ -1,3 +1,6 @@
+# NEXT STEP
+
+At the bottom of `MondrianSheets.R`, create an `Excelable` using an `ItemSet`, and create functions so you can add an item as a terminal node and a row/column node.
 
 # Items
 

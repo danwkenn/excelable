@@ -2,7 +2,11 @@
 
 S3method(add_data,Cell)
 S3method(add_formula,Cell)
+S3method(add_sheet,Excelable)
+S3method(add_sheet,MondrianSheets)
 export(Cell)
+export(Excelable)
 export(ItemSet)
 export(add_data)
 export(add_formula)
+export(create_MondrianSheets)
