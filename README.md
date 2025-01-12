@@ -1,6 +1,7 @@
 # NEXT STEP
 
 Create function to determine the dimension for a non-formula dimension.
+Add assertions in the MondrianSheets script for functions.
 
 # Items
 
